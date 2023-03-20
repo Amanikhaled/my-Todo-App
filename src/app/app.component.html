@@ -1,0 +1,36 @@
+<!-- <h1 {{title}}> </h1> -->
+<section class="vh-100" style="background-color: #e2d5de;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-5">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-describedby="basic-addon2" placeholder="Enter your to do"
+                #task>
+              <br>
+              <br>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="AddTask(task.value)"> Add </button>
+                <br>
+                <br>
+              </div>
+            </div>
+            <div class="list-group">
+              <ul class="list-group mb-0 col-12" *ngFor="let item of list">
+                <li class="list-group-item " [ngStyle]=" { 'text-decoration' :item.status ? 'none' :'line-through'}">
+                  {{item.name}}
+
+                  <button class="btn btn-outline-secondary " type="button" (click)="DeleteItem(item.id)">
+                    Remove</button>
+                  <button class="btn btn-outline-secondary" type="button" (click)=" Done(item)">done</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
